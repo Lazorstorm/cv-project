@@ -7,6 +7,6 @@ This repo is a copy of php-practice, extended with models, controllers and a MyS
 # Installation
 - npm install
 - composer install
-- create a .env file
+- rename .env.example to .env and add your database credentials
 
 Thats it ;-)
