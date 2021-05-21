@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Http\Controllers;
 
 use App\Models\UserModel;
 use App\Libraries\View;
@@ -11,13 +11,23 @@ class UserController extends Controller
 
     public function index()
     {
-        
+        $userModel = new UserModel();
+
+        View::render('users/index.view', [
+            'users' => $userModel::all(),
+            'foods' => 'Pannekoeken',
+        ]);
     }
 
     /**
      * Store a user record into the database
      */
     public function store()
+    {
+        
+    }
+
+    public function create()
     {
         
     }
