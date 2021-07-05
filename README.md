@@ -5,8 +5,9 @@ This is just a basic PHP MVC framework to practice classes and learn coding when
 This repo is a copy of php-practice, extended with models, controllers and a MySQL library
 
 # Installation
-- npm install
 - composer install
+- npm install
+- create a MySQL database
 - rename .env.example to .env and add your database credentials
 
 Thats it ;-)
