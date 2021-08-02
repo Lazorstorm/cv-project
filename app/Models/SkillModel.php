@@ -2,18 +2,17 @@
 
 namespace App\Models;
 
-class UserModel extends Model
+class SkillModel extends Model
 {
     // Name of the table
-    protected $model = "users";
+    protected $model = "skills";
 
     // Max number of records when fetching all records from table
     protected $limit;
 
     // Non writable fields
     protected $guarded = [
-        'id',
-
+        'id'
     ];
 
     public function __construct()

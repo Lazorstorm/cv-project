@@ -36,7 +36,7 @@ class MySql
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
         }
-
+        
         return $dbh;
     }
 

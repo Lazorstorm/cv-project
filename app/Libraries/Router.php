@@ -2,7 +2,8 @@
 
 namespace App\Libraries;
 
-class Router {
+class Router
+{
 
     public $routes = [
         'GET' => [],
@@ -14,7 +15,7 @@ class Router {
     public static function load($file)
     {
         $router = new static;
-    
+
         require $file;
 
         return $router;
@@ -22,12 +23,11 @@ class Router {
 
     public function direct($uri, $requestType)
     {
-        if (array_key_exists($uri, $this->routes[$requestType]))
-        {
+        if (array_key_exists($uri, $this->routes[$requestType])) {
             $classAndFunc = $this->stripFunctionName($this->routes[$requestType][$uri]);
 
             return [
-                'uri' => $classAndFunc['uri'],
+                'uri' => lcfirst($classAndFunc['uri']),
                 'function' => $classAndFunc['function'],
                 'class' => $classAndFunc['class'],
             ];
@@ -58,8 +58,7 @@ class Router {
 
         $atSign = strpos($uri, '@');
 
-        if ($atSign !== false)
-        {
+        if ($atSign !== false) {
             $class = str_replace('/', '\\', substr($uri, 0, $atSign));
             $class = str_ireplace('.php', '', $class);
             $data = [

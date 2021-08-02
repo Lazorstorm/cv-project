@@ -12,8 +12,7 @@ class EducationModel extends Model
 
     // Non writable fields
     protected $guarded = [
-        'id',
-        'deleted',
+        'id'
     ];
 
     public function __construct()

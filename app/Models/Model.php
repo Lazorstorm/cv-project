@@ -25,7 +25,7 @@ class Model
         self::$limit = $limit;
         self::$protectedFields = $protectedFields;
     }
-    
+
     /**
      * Fetching all records from table
      * @return array of objects
@@ -33,13 +33,12 @@ class Model
     public static function all(array $selectedFields = null)
     {
         $fields = "*";
-        
+
         if (!empty($selectedFields) && count($selectedFields) > 0) {
             $fields = self::composeQuery($selectedFields);
         }
 
         $sql = "SELECT " . $fields . " FROM " . self::$model . " WHERE deleted IS NULL" . (!empty(self::$limit) ? " LIMIT " . self::$limit : "");
-
         return MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
     }
 
@@ -59,6 +58,7 @@ class Model
 
         $sql = "SELECT " . $fields .  " FROM " . self::$model . " WHERE id=" . $id . " AND deleted IS NULL";
         $res = MySql::query($sql)->fetchAll(PDO::FETCH_CLASS);
+        dd($sql);
 
         return count($res) > 0 ? $res[0] : null;
     }
@@ -108,12 +108,10 @@ class Model
     {
         $getFields = '';
 
-        foreach ($fields as $field)
-        {
+        foreach ($fields as $field) {
             $getFields .= $field . ',';
         }
 
         return rtrim($getFields, ',');
     }
-
 }

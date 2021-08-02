@@ -11,6 +11,9 @@ class EducationController extends Controller
 {
     public function index()
     {
-        
+        $educationModel = new EducationModel();
+        View::render('educations/index.view', [
+            'educations' => $educationModel::all(),
+        ]);
     }
 }

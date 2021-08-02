@@ -22,8 +22,8 @@ class CvModel extends Model
     public function __construct()
     {
         parent::__construct(
-            $this->table, 
-            $this->limit, 
+            $this->table,
+            $this->limit,
             $this->guarded,
         );
     }

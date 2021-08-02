@@ -12,10 +12,8 @@ class UserController extends Controller
     public function index()
     {
         $userModel = new UserModel();
-
         View::render('users/index.view', [
             'users' => $userModel::all(),
-            'foods' => 'Pannekoeken',
         ]);
     }
 
@@ -24,12 +22,10 @@ class UserController extends Controller
      */
     public function store()
     {
-        
     }
 
     public function create()
     {
-        
     }
 
     /**
@@ -54,8 +50,5 @@ class UserController extends Controller
      */
     public function destroy(int $id)
     {
-
     }
-
 }
-
